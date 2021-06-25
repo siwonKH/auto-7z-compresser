@@ -24,13 +24,22 @@ def prepare(folder):
 def compress(folder: str, files, location, exclude, cores):
     date = datetime.datetime.now().strftime('%y-%m-%d')
     name = folder.split('\\')[-1]
-    location = location[files.index(folder)]
-    if not location.endswith("\\"):
+    if location[files.index(folder)] == "" and files.index(folder) != 0:
+        i = files.index(folder)
+        while i != -1:
+            if location[i] == "":
+                i -= 1
+                continue
+            location = location[i]
+            break
+    else:
+        location = location[files.index(folder)]
+    if not location.endswith("\\") and location != "":
         location += "\\"
     exclude_str = ""
     for string in exclude:
         exclude_str += f"-xr!{string} "
-    os.system(f'7z a -t7z "{location}{date}/{name}-{date}" "{folder}" -mmt{cores} -mx=1 {exclude_str}')
+    os.system(f'7z a -t7z "{location}{date}\\{name}-{date}" "{folder}" -mmt{cores} -mx=1 {exclude_str}')
 
 
 if __name__ == "__main__":

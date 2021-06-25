@@ -15,18 +15,22 @@ def parse(name, is_list: bool):
 
 def prepare(folder):
     files = parse("files", is_list=True)
-    cores = parse("cores", is_list=False)
     location = parse("location", is_list=True)
-    compress(folder, cores, location, files)
+    exclude = parse("exclude_folder", is_list=True)
+    cores = parse("cores", is_list=False)
+    compress(folder, files, location, exclude, cores)
 
 
-def compress(folder: str, cores, location, files):
+def compress(folder: str, files, location, exclude, cores):
     date = datetime.datetime.now().strftime('%y-%m-%d')
     name = folder.split('\\')[-1]
     location = location[files.index(folder)]
-    print(location)
-    print(folder)
-    os.system(f'7z a "{location}{name}-{date}" "{folder}" -mmt{cores} -mx=1')
+    if not location.endswith("\\"):
+        location += "\\"
+    exclude_str = ""
+    for string in exclude:
+        exclude_str += f"-xr!{string} "
+    os.system(f'7z a -t7z "{location}{date}/{name}-{date}" "{folder}" -mmt{cores} -mx=1 {exclude_str}')
 
 
 if __name__ == "__main__":

@@ -24,6 +24,8 @@ def compress(folder: str, cores, location, files):
     date = datetime.datetime.now().strftime('%y-%m-%d')
     name = folder.split('\\')[-1]
     location = location[files.index(folder)]
+    print(location)
+    print(folder)
     os.system(f'7z a "{location}{name}-{date}" "{folder}" -mmt{cores} -mx=1')
 
 

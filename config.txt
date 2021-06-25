@@ -1,8 +1,11 @@
 files {
     "C:\Users\kanghyun\IdeaProjects",
-    "C:\Users\kanghyun\WebstormProjects"
+    "C:\Users\kanghyun\WebstormProjects",
+    "C:\Users\kanghyun\PycharmProjects",
+
 }
 location {
+    "C:\컴퓨터 백업\JetBrainProjects\",
     "C:\컴퓨터 백업\JetBrainProjects\",
     "C:\컴퓨터 백업\JetBrainProjects\"
 }

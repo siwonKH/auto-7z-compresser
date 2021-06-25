@@ -4,8 +4,8 @@ import multiprocessing
 
 
 def parse(name, is_list: bool):
-    config = open("config.txt", 'r', encoding='utf=8')
-    parsed_list = "".join(config.readlines()).replace('\n', "").split(name)[1].split('}')[0].split('{')[1].split('"')
+    config = "".join(open("config.txt", 'r', encoding='utf=8').readlines())
+    parsed_list = config.replace('\n', "").split(name)[1].split('}')[0].split('{')[1].split('"')
     if not is_list:
         return parsed_list[0].strip()
     for i in range(0, len(parsed_list), 2):

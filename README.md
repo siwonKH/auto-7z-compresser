@@ -39,13 +39,20 @@ cores {
 
 작동 방식
 ---
-### 설정 파일 파싱하기
+### 설정 파일 파싱함수
 files를 예로 든다면..
-1. files 라는 글자부터 } 까지의 문자열을 추출 
-```files {"C:\Users\MyProjects\PythonProjects","C:\Users\MyProjects\GoProjects",}```
-2. 위 문자열에서 { 까지의 문자열을 추출
-```{"C:\Users\MyProjects\PythonProjects","C:\Users\MyProjects\GoProjects",}```
-3. 
+1. files 라는 글자부터 } 까지의 문자열을 추출  
+``` files {\n"C:\Users\MyProjects\PythonProjects",\n"C:\Users\MyProjects\GoProjects",\n}```
+2. 위 문자열에서 { 까지의 문자열을 추출  
+```{\n"C:\Users\MyProjects\PythonProjects",\n"C:\Users\MyProjects\GoProjects",\n}```
+3. " 를 기준으로 split 하여 리스트로 추출  
+```py
+["{\n", "C:\Users\MyProjects\PythonProjects", ",\n", "C:\Users\MyProjects\GoProjects", ",\n"]
+```
+4. 리스트의 짝수 주소의 값만 추출하여 그 리스트를 return 함
+```py
+["C:\Users\MyProjects\PythonProjects", "C:\Users\MyProjects\GoProjects"]
+```
 
 ### 압축하기
 

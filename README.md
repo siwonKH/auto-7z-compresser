@@ -59,6 +59,8 @@ files {\n"C:\Users\MyProjects\PythonProjects",\n"C:\Users\MyProjects\GoProjects"
 ```
 
 ### 압축하기
-
+```py
+os.system(f'7z a -t7z "{location}{date}\\{name}-{date}" "{folder}" -mmt{cores} -mx=1 {exclude_str}')
+```
 
 ### 멀티프로세싱

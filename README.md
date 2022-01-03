@@ -7,7 +7,7 @@
 
 설정 파일
 ---
-```py
+```
 # config.txt
 files {
     "C:\Users\MyProjects\PythonProjects",
@@ -39,6 +39,14 @@ cores {
 
 작동 방식
 ---
-- 설정 파일 파싱하기
-- 압축하기
-- 멀티프로세싱
+### 설정 파일 파싱하기
+files를 예로 든다면..
+1. files 라는 글자부터 } 까지의 문자열을 추출 
+```files {"C:\Users\MyProjects\PythonProjects","C:\Users\MyProjects\GoProjects",}```
+2. 위 문자열에서 { 까지의 문자열을 추출
+```{"C:\Users\MyProjects\PythonProjects","C:\Users\MyProjects\GoProjects",}```
+3. 
+
+### 압축하기
+
+### 멀티프로세싱

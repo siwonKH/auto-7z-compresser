@@ -64,3 +64,6 @@ os.system(f'7z a -t7z "{location}{date}\\{name}-{date}" "{folder}" -mmt{cores} -
 ```
 
 ### 멀티프로세싱
+파이썬의 멀티프로세싱 모듈을 사용하여 설정된 모든 경로들을 동시에 처리하도록 만들었다.
+
+
